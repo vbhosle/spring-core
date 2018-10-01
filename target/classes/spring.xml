@@ -3,13 +3,21 @@
 
 <beans>
 
-	<bean id="parentTriangle" class="org.koushik.javabrains.Triangle" abstract="true">
-		<property name="pointA" ref="pointA" />
+	<bean id="parentTriangle" class="org.koushik.javabrains.Triangle"
+		abstract="true">
+		<property name="points">
+			<list>
+				<ref bean="pointA" />
+			</list>
+		</property>
 	</bean>
-	
+
 	<bean id="triangle" parent="parentTriangle">
-		<property name="pointB" ref="pointB" />
-		<property name="pointC" ref="pointC" />
+		<property name="points">
+			<list merge="true">
+				<ref bean="pointB" />
+			</list>
+		</property>
 	</bean>
 
 	<bean id="pointA" class="org.koushik.javabrains.Point">
