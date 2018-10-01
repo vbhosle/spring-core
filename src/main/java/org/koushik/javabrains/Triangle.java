@@ -2,12 +2,13 @@ package org.koushik.javabrains;
 
 public class Triangle {
 
+	private String name;
 	private Point pointA;
 	private Point pointB;
 	private Point pointC;
 	
 	public void draw() {
-		System.out.println("Triangle drawn from "+ pointA + ", " + pointB +", " + pointC);
+		System.out.println(name + " Triangle drawn from "+ pointA + ", " + pointB +", " + pointC);
 	}
 
 	public Point getPointA() {
@@ -32,6 +33,14 @@ public class Triangle {
 
 	public void setPointC(Point pointC) {
 		this.pointC = pointC;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	
