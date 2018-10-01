@@ -27,5 +27,13 @@ public class Point {
 		return "Point [x=" + x + ", y=" + y + "]";
 	}
 	
+	public void myInit() {
+		System.out.println("Point initialized");
+	}
+	
+	public void cleanup() {
+		System.out.println("Point cleanup");
+	}
+	
 	
 }

@@ -2,7 +2,10 @@ package org.koushik.javabrains;
 
 import java.util.List;
 
-public class Triangle {
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class Triangle implements InitializingBean, DisposableBean{
 
 	private List<Point> points;
 
@@ -23,6 +26,14 @@ public class Triangle {
 
 	public void setPoints(List<Point> points) {
 		this.points = points;
+	}
+
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("Triangle bean initialized");
+	}
+
+	public void destroy() throws Exception {
+		System.out.println("Triangle bean disposed");
 	}
 
 }
