@@ -1,23 +1,16 @@
 package org.koushik.javabrains;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+public class Triangle {
 
-public class Triangle implements ApplicationContextAware, BeanNameAware {
-
-	private ApplicationContext context;
-	private Point pointA;
-	private Point pointB;
-	private Point pointC;
-
-	public Triangle() {
-		System.out.println("Trianble constructor");
-	}
-
+		private Point pointA;
+		private Point pointB;
+		private Point pointC;
+	
+		public Triangle() {
+			System.out.println("Triangle constructor");
+		}
 	public void draw() {
-		System.out.println("Triangle drawn from " + pointA + ", " + pointB + ", " + pointC);
+		System.out.println("Triangle drawn from "+ pointA + ", " + pointB +", " + pointC);
 	}
 
 	public Point getPointA() {
@@ -44,12 +37,6 @@ public class Triangle implements ApplicationContextAware, BeanNameAware {
 		this.pointC = pointC;
 	}
 
-	public void setBeanName(String beanName) {
-		System.out.println("Bean name is: " + beanName);
-	}
-
-	public void setApplicationContext(ApplicationContext context) throws BeansException {
-		this.context = context;
-	}
-
+	
+	
 }
