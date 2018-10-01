@@ -26,5 +26,6 @@ public class DrawingApp {
 		Triangle triangle1 = (Triangle) context.getBean("triangle");
 		Triangle triangle2 = (Triangle) context.getBean("triangle");
 		System.out.println(triangle1.getPoints().get(0) == triangle2.getPoints().get(0));
+		System.out.println(triangle1.getPoints().get(0));
 	}
 }

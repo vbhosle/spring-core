@@ -21,13 +21,16 @@
 	</bean>
 
 	<bean id="pointA" class="org.koushik.javabrains.Point" init-method="myInit" destroy-method="cleanup">
-		<property name="x" value="0" />
-		<property name="y" value="0" />
+		<property name="x" value="${pointA.x}" />
+		<property name="y" value="${pointA.y}" />
 	</bean>
 	<bean id="pointB" class="org.koushik.javabrains.Point">
 		<property name="x" value="-20" />
 		<property name="y" value="0" />
 	</bean>
 	
-	<bean class="org.koushik.javabrains.DisplayNameBeanPostProcessor" />
+	<bean class="org.koushik.javabrains.MyBeanFactoryPostProcessor" />
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="pointsconfig.properties"/>
+	</bean>
 </beans>
