@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
-
-<beans default-init-method="myInit" default-destroy-method="cleanup">
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+ xmlns:context="http://www.springframework.org/schema/context">
 
 	<bean id="parentTriangle" class="org.koushik.javabrains.Triangle"
 		abstract="true">
@@ -21,19 +23,25 @@
 	</bean>
 
 	<bean id="pointA" class="org.koushik.javabrains.Point" init-method="myInit" destroy-method="cleanup">
-		<property name="x" value="${pointA.x}" />
-		<property name="y" value="${pointA.y}" />
+		<property name="x" value="0" />
+		<property name="y" value="0" />
 	</bean>
+
 	<bean id="pointB" class="org.koushik.javabrains.Point">
 		<property name="x" value="-20" />
 		<property name="y" value="0" />
 	</bean>
+	
 	<bean id="circle" class="org.koushik.javabrains.Circle">
 		
 	</bean>
 	<bean class="org.koushik.javabrains.MyBeanFactoryPostProcessor" />
-	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+	
+	<!-- 
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations" value="pointsconfig.properties"/>
 	</bean>
+	 -->
+	 <context:annotation-config/>
 </beans>
