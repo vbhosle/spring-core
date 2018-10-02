@@ -1,5 +1,7 @@
 package org.koushik.javabrains;
 
+import java.util.Locale;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -22,5 +24,12 @@ public class DrawingApp {
 		System.out.println("Before getBean");
 		Shape shape = (Shape)context.getBean("circle");
 		shape.draw();
+		
+//		String message = context.getMessage("greeting", null, "Hola", Locale.UK);
+//		System.out.println(message);
+//		
+//		message = context.getMessage("question", null, "Que te llamo?", Locale.UK);
+//		System.out.println(message);
+//		
 	}
 }
