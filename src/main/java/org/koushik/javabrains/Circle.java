@@ -6,13 +6,16 @@ import javax.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Circle implements Shape {
+public class Circle implements Shape, ApplicationEventPublisherAware {
 
 	private Point center;
+	private ApplicationEventPublisher publisher;
 	
 	@Autowired
 	private MessageSource messageSource;
@@ -38,6 +41,7 @@ public class Circle implements Shape {
 		System.out.println(messageSource.getMessage("draw.circle", null, "Circle", new Locale("es", "ES")));
 		System.out.println(messageSource.getMessage("draw.point", new Object[] {center.getX(), center.getY()}, "points plotted", new Locale("es", "ES")));
 		System.out.println(messageSource.getMessage("greeting", null, "Hello", new Locale("es", "ES")));
+		publisher.publishEvent(new DrawEvent(this));
 	}
 	
 	@PostConstruct
@@ -48,6 +52,10 @@ public class Circle implements Shape {
 	@PreDestroy
 	public void destroy() {
 		System.out.println("Circle destroyed");
+	}
+
+	public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
+		this.publisher = applicationEventPublisher;
 	}
 
 }
