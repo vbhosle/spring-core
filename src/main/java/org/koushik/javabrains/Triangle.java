@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class Triangle implements InitializingBean, DisposableBean{
+public class Triangle implements Shape, InitializingBean, DisposableBean{
 
 	private List<Point> points;
 
@@ -13,12 +13,6 @@ public class Triangle implements InitializingBean, DisposableBean{
 		System.out.println("Triangle constructor");
 	}
 
-	public void draw() {
-		System.out.println("Triangle drawn with following points:");
-		for (Point point : points) {
-			System.out.println(point);
-		}
-	}
 
 	public List<Point> getPoints() {
 		return points;
@@ -34,6 +28,14 @@ public class Triangle implements InitializingBean, DisposableBean{
 
 	public void destroy() throws Exception {
 		System.out.println("Triangle bean disposed");
+	}
+
+
+	public void draw() {
+		System.out.println("Triangle drawn with following points:");
+		for (Point point : points) {
+			System.out.println(point);
+		}
 	}
 
 }
