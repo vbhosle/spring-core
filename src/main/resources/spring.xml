@@ -37,9 +37,7 @@
 		<property name="y" value="0" />
 	</bean>
 	
-	<bean id="circle" class="org.koushik.javabrains.Circle">
-		
-	</bean>
+
 	<bean class="org.koushik.javabrains.MyBeanFactoryPostProcessor" />
 	
 	<!-- 
@@ -49,4 +47,5 @@
 	</bean>
 	 -->
 	 <context:annotation-config/>
+	 <context:component-scan base-package="org.koushik.javabrains" />
 </beans>
