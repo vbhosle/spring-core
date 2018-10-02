@@ -1,6 +1,7 @@
 package org.koushik.javabrains;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @SuppressWarnings("deprecation")
@@ -16,7 +17,8 @@ public class DrawingApp {
 //		System.out.println(triangle1 == triangle2); //scope is singleton by default !!
 		
 		// Using ApplicationContext
-		ApplicationContext context = new ClassPathXmlApplicationContext("file:src/main/resources/spring.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("file:src/main/resources/spring.xml");
+		context.registerShutdownHook();
 		System.out.println("Before getBean");
 		Shape shape = (Shape)context.getBean("circle");
 		shape.draw();
